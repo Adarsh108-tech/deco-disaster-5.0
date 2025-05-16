@@ -61,7 +61,7 @@ export default function Home() {
         loop={false}
         preload="metadata"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="https://s3-figma-videos-production-sig.figma.com/video/TEAM/1085611228759869405/78136d8ac61e7a9a691c6823d476b61a38ebdc26?Expires=1747008000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QrrKJ2cqB05D6LkEhwF4-~D1PIRdB3WT40lAo1C0i~Q-3HmmK6gSFcVXP78TRBubKafKgBCkLujG4n~oFluEDvHVyiM01sb4ybYTPDJC71-AuzDc7BqCWsjfy1SH-GQH70lziuJ7gBeXP59mg~TGMXFAixX7F8cCOZ6VuKSY49ZaC6mi~SfTjhy4NmPr2yJykebZidBjsAoFbZUaDprZO5h~PxFJ~Dx--zI5snJEfTHwYutFJrQLDATuYovn7du85tNHCVB3naETwTTl8yYDsSFdYFy1I3yg0S58~6O~PZVkqcZjKB4SQBm3H3FtVqJsNLVee78tljYghm22HILeMw__"
+        src="/assets/back_video.mp4"
         type="video/mp4"
       >
         Your browser does not support the video tag.

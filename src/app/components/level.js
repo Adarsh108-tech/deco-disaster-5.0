@@ -1,193 +1,75 @@
 'use client';
+import React, { useState } from 'react';
+import Modal1 from './firstModal';
 
-import React, { useEffect, useState, useRef } from 'react';
-import Text from './Text'; // Import the Text component
+const Level = ({ char1Img, char2Img, say1, say2, back, riddle , nextRoute  }) => {
+  const CharScript = say1;
+  const PlayerScript = say2;
 
-const Level = () => {
-  const boy1Ref = useRef(null);
-  const boy2Ref = useRef(null);
+  const [turn, setTurn] = useState("A");
+  const [charIndex, setCharIndex] = useState(0);
+  const [playerIndex, setPlayerIndex] = useState(0);
+  const [text, setText] = useState(CharScript[0]);
+  const [showModal, setShowModal] = useState(false);
 
-  const [boy1Dims, setBoy1Dims] = useState({ top: 0, left: 0, width: 0, height: 0 });
-  const [boy2Dims, setBoy2Dims] = useState({ top: 0, left: 0, width: 0, height: 0 });
-
-  const bubbleText1Arr = [
-    `Welcome to Level 1! sdmfibwejbfbqwern ,
-    Let's get started! iehibrvbjhebhvbebr ,
-    Let's get started! iehibrvbjhebhvbebr ,
-    Let's get started! iehibrvbjhebhvbebr ,
-    Let's get started! iehibrvbjhebhvbebr`,
-    "Be smart, be quick, and good luck!",
-    "You're doing great! Keep it up!"
-  ];
-
-  const bubbleText2Arr = [
-    "Hey! I'm here too!",
-    "Let's finish this level together!",
-    "We're an awesome team!"
-  ];
-
-  const [showBoy1, setShowBoy1] = useState(false);
-  const [showBoy2, setShowBoy2] = useState(false);
-
-  const [currentTurn, setCurrentTurn] = useState('boy1'); // alternates between 'boy1' and 'boy2'
-  const [step, setStep] = useState(0); // tracks dialogue index
-
-  const [showModal, setShowModal] = useState(false); // To track modal visibility
-
-  const maxSteps = Math.min(bubbleText1Arr.length, bubbleText2Arr.length);
-
-  // Show boys and initial bubbles
-  useEffect(() => {
-    setShowBoy1(true);
-    const bubble1Timer = setTimeout(() => {
-      setShowBoy2(true);
-    }, 800);
-    return () => clearTimeout(bubble1Timer);
-  }, []);
-
-  // Track positions
-  useEffect(() => {
-    const updateBoy1Position = () => {
-      if (boy1Ref.current) {
-        const rect = boy1Ref.current.getBoundingClientRect();
-        setBoy1Dims({
-          top: rect.top,
-          left: rect.left,
-          width: rect.width,
-          height: rect.height,
-        });
+  const handleClick = () => {
+    if (turn === "A") {
+      if (playerIndex < PlayerScript.length) {
+        setText(PlayerScript[playerIndex]);
+        setPlayerIndex(playerIndex + 1);
+        setTurn("B");
+      } else if (charIndex >= CharScript.length) {
+        setShowModal(true);
       }
-    };
-    updateBoy1Position();
-    window.addEventListener('resize', updateBoy1Position);
-    return () => window.removeEventListener('resize', updateBoy1Position);
-  }, [showBoy1]);
-
-  useEffect(() => {
-    const updateBoy2Position = () => {
-      if (boy2Ref.current) {
-        const rect = boy2Ref.current.getBoundingClientRect();
-        setBoy2Dims({
-          top: rect.top,
-          left: rect.left,
-          width: rect.width,
-          height: rect.height,
-        });
+    } else {
+      if (charIndex + 1 < CharScript.length) {
+        setCharIndex(charIndex + 1);
+        setText(CharScript[charIndex + 1]);
+        setTurn("A");
+      } else if (playerIndex >= PlayerScript.length) {
+        setShowModal(true);
       }
-    };
-    updateBoy2Position();
-    window.addEventListener('resize', updateBoy2Position);
-    return () => window.removeEventListener('resize', updateBoy2Position);
-  }, [showBoy2]);
-
-  // Handle any click (left/right)
-  const handleAdvance = (e) => {
-    e.preventDefault();
-    if (step >= maxSteps) return;
-
-    // Alternate turns
-    setCurrentTurn((prev) => (prev === 'boy1' ? 'boy2' : 'boy1'));
-
-    // Only increment step after boy2 speaks
-    if (currentTurn === 'boy2') {
-      setStep((prev) => prev + 1);
-    }
-
-    // Check if all dialogues from boy2 are completed
-    if (step + 1 >= bubbleText2Arr.length) {
-      setShowModal(true); // Show the modal after boy2's dialogues are complete
     }
   };
 
   return (
     <div
-      className="relative h-screen w-full overflow-hidden"
-      onClick={handleAdvance}
-      onContextMenu={handleAdvance}
+      className="relative h-screen w-screen overflow-hidden flex justify-center items-center"
+      onClick={handleClick}
     >
       {/* Background */}
       <img
-        src="/level/1.svg"
+        src={back}
         alt="Background"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute h-full w-full object-cover -z-10"
       />
 
-      {/* Boy 1 */}
-      <img
-        ref={boy1Ref}
-        src="/level/boy1.svg"
-        alt="Boy 1"
-        className={`absolute bottom-0 transition-all duration-300 ease-in-out ${
-          showBoy1 ? 'left-[20px]' : '-left-40'
-        } h-[75vh] sm:h-[75vh] md:h-[85vh] lg:h-[80vh]`}
-      />
+      {/* Character on the left */}
+      <div className="absolute left-0 bottom-0 w-[50%] flex items-center">
+        <img src={char1Img} alt="Character" className="w-[50%] h-auto" />
+      </div>
 
-      {/* Bubble 1 */}
-      {currentTurn === 'boy1' && step < maxSteps && (
-        <div
-          className="absolute"
-          style={{
-            top: `calc(100vh - ${boy1Dims.height + 20}px)`,
-            left: `${boy1Dims.left + boy1Dims.width + 50}px`,
-            width: 'min(95vw, 480px)',
-            height: `${boy1Dims.height * 0.52}px`,
-          }}
-        >
-          <div className="relative w-full h-full">
-            <img
-              src="/level/bubble.svg"
-              alt="Text Box 1"
-              className="w-full h-full object-contain"
-            />
-            <div
-              className="absolute inset-0 flex items-center justify-center px-4 py-2 text-xs sm:text-sm md:text-base text-black text-center leading-tight overflow-hidden"
-              style={{ whiteSpace: 'pre-wrap' }}
-            >
-              <p className="w-full m-0">{bubbleText1Arr[step]}</p>
-            </div>
-          </div>
+      {/* Bubble and Text */}
+      <div className="w-[55%] md:w-[70%] flex absolute justify-center items-center">
+        <img
+          src={turn === "A" ? "/level/bubble.svg" : "/level/bubble2.svg"}
+          alt="Speech Bubble"
+          className="w-full"
+        />
+        <div className="text-center absolute top-[20%] md:top-[25%] md:text-lg text-sm h-[50%] md:h-[45%] w-[55%] text-black font-semibold z-10">
+          {text}
         </div>
+      </div>
+
+      {/* Player on the right */}
+      <div className="absolute right-0 bottom-0 w-[50%] flex justify-end">
+        <img src={char2Img} alt="Player" className="w-[50%] h-auto mb-2" />
+      </div>
+
+      {/* Modal */}
+      {showModal && (
+        <Modal1 setShowModal={setShowModal} riddle={riddle}  route={nextRoute}/>
       )}
-
-      {/* Boy 2 */}
-      <img
-        ref={boy2Ref}
-        src="/level/boy2.svg"
-        alt="Boy 2"
-        className={`absolute bottom-0 transition-all duration-300 ease-in-out ${
-          showBoy2 ? 'right-[20px]' : '-right-40'
-        } h-[75vh] sm:h-[75vh] md:h-[85vh] lg:h-[80vh]`}
-      />
-
-      {/* Bubble 2 */}
-      {currentTurn === 'boy2' && step < maxSteps && (
-        <div
-          className="absolute"
-          style={{
-            top: `calc(100vh - ${boy2Dims.height + 20}px)`,
-            left: `${boy2Dims.left - 480 - 50}px`,
-            width: 'min(95vw, 480px)',
-            height: `${boy2Dims.height * 0.52}px`,
-          }}
-        >
-          <div className="relative w-full h-full">
-            <img
-              src="/level/bubble2.svg"
-              alt="Text Box 2"
-              className="w-full h-full object-contain"
-            />
-            <div
-              className="absolute inset-0 flex items-center justify-center px-4 py-2 text-xs sm:text-sm md:text-base text-black text-center leading-tight overflow-hidden"
-              style={{ whiteSpace: 'pre-wrap' }}
-            >
-              <p className="w-full m-0">{bubbleText2Arr[step]}</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Show Modal if showModal is true */}
-      {showModal && <Text closeModal={() => setShowModal(false)} />}
     </div>
   );
 };
