@@ -10,7 +10,7 @@ const Modal1 = ({ setShowModal, riddle, route }) => {
   const handleSubmit = () => {
     alert(`Your answer: ${userAnswer}`);
     if (route) {
-      router.push(route); // ✅ uses the provided route prop
+      router.push(route); 
     } else {
       console.warn("No route provided to Modal1.");
     }

@@ -14,10 +14,10 @@
     "stage2" : {
         "SaitamaImage":"/assets/level2/saitama.png",
         "PlayerImage":"/level/boy2.svg",
-        "CharSay" : ["“...Who… am I? Why do I feel like I’m waiting for something?”" , "“A sale on leeks… something about coupons… then… silence.”"],
+        "CharSay" : ["“...Who… am I? Why do I feel like I’m waiting for something?”" , "A sale on leeks… something about coupons… then… silence."],
         "PlayerSay":["“Saitama! You're more than a punch. What’s the last thing you remember?”"],
         "back":"/assets/level2/saitamaBack.png",
-        "riddle":"“Tick-tock, human. He’s about to become a weapon.” , “We’ve uploaded a memory shard… solve it to reawaken his identity core!”   “I am the beginning of eternity, the end of time and space. The start of every end, and the end of every place. What am I?” ",
+        "riddle":" Tick-tock, human. He’s about to become a weapon.” , “We’ve uploaded a memory shard… solve it to reawaken his identity core!”   “I am the beginning of eternity, the end of time and space. The start of every end, and the end of every place. What am I?” ",
 
         "prompt":"After a strange cosmic event caused by a rift in spacetime, Saitama loses his memory during a confrontation with a multiversal villain known as Nullus, who drains purpose and identity from heroes. Without his purpose, Saitama’s power begins to destabilize—he’s become a ticking bomb of unimaginable strength, and if he snaps… he could destroy the Earth.",
         "nextRoute":"/level1/Stage3"

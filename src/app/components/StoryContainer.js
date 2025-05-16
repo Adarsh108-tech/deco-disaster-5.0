@@ -17,7 +17,7 @@ const StoryContainer = ({ storyContent }) => {
   const counter = useRef(0);
 
   const router = useRouter();
-  const REDIRECT_URL = "/level1/stage1";
+  const REDIRECT_URL = "/level1/Stage1";
 
   const onGameStarted = () => {
     setGameStarted(true);

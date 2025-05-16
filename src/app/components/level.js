@@ -50,13 +50,13 @@ const Level = ({ char1Img, char2Img, say1, say2, back, riddle , nextRoute  }) =>
       </div>
 
       {/* Bubble and Text */}
-      <div className="w-[55%] md:w-[70%] flex absolute justify-center items-center">
+      <div className="w-[80%] md:w-[45%]  flex absolute justify-center items-center">
         <img
           src={turn === "A" ? "/level/bubble.svg" : "/level/bubble2.svg"}
           alt="Speech Bubble"
           className="w-full"
         />
-        <div className="text-center absolute top-[20%] md:top-[25%] md:text-lg text-sm h-[50%] md:h-[45%] w-[55%] text-black font-semibold z-10">
+        <div className="text-center absolute top-[20%] md:top-[25%] md:text-lg text-xs h-[50%] md:h-[45%] w-[55%] text-black font-semibold z-10">
           {text}
         </div>
       </div>
