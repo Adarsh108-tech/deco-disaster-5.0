@@ -1,0 +1,34 @@
+{
+    "StoryContent":["The Multiverse is on the brink of collapse. A mysterious force named DECO (Dimensional Entropy & Chaos Overdrive) has infiltrated the anime worlds, corrupting timelines, twisting character roles, and scrambling memories. ","Beloved anime characters have been trapped in alternate realities, their powers distorted, and their stories rewritten. The only way to restore order? Solve the DECO riddles and help the characters find their true selves.","You – the player – are recruited by ' The Curator ', a time-traveling archivist from the Library of Realms. Your mission: dive into the corrupted dimensions, solve the riddles, and bring balance back before the universes collapse into eternal chaos." ],
+
+    "stage1" : {
+        "NarutoImage":"/level/boy1.svg",
+        "PlayerImage":"/level/boy2.svg",
+        "CharSay" : ["Yo! You made it all the way here, huh? Not bad!","You're absolutely right. But it won't just open for anyone. The toads put a riddle seal on it—only those worthy of Sage power can crack it."],
+        "PlayerSay":["Naruto! I heard the Scroll of Numbers holds the first step to unlocking Sage Mode","I'm ready. What's the riddle?"],
+        "back":"/level/1.svg",
+        "riddle":"To gain the first part of Sage Mode, Naruto must unlock the Scroll of Numbers hidden deep within Mount Myōboku. But the scroll is sealed with a code. Help him decipher it!",
+        "prompt":"Now you are being send to the naruto universe where Naruto have to open the scroll in order to get the sage mode help him to do it",
+        "nextRoute":"/level1/Stage2"
+    },
+    "stage2" : {
+        "SaitamaImage":"/assets/level2/saitama.png",
+        "PlayerImage":"/level/boy2.svg",
+        "CharSay" : ["“...Who… am I? Why do I feel like I’m waiting for something?”" , "A sale on leeks… something about coupons… then… silence."],
+        "PlayerSay":["“Saitama! You're more than a punch. What’s the last thing you remember?”"],
+        "back":"/assets/level2/saitamaBack.png",
+        "riddle":" Tick-tock, human. He’s about to become a weapon.” , “We’ve uploaded a memory shard… solve it to reawaken his identity core!”   “I am the beginning of eternity, the end of time and space. The start of every end, and the end of every place. What am I?” ",
+
+        "prompt":"After a strange cosmic event caused by a rift in spacetime, Saitama loses his memory during a confrontation with a multiversal villain known as Nullus, who drains purpose and identity from heroes. Without his purpose, Saitama’s power begins to destabilize—he’s become a ticking bomb of unimaginable strength, and if he snaps… he could destroy the Earth.",
+        "nextRoute":"/level1/Stage3"
+    },
+    "stage3" : {
+        "SaitamaImage":"/luffy.png",
+        "PlayerImage":"/level/boy2.svg",
+        "CharSay" : ["I’ve been running for hours… WHERE’S MY MEAT!?", "“If I eat meat, I won’t eat rice.”  “If I don’t eat rice, I’ll eat fish.” “If I eat fish, I’ll want more meat.” "],
+        "PlayerSay":["You’ll never eat again unless you break the curse! Only one of your thoughts is true. Think wisely… or stay hungry forever!"],
+        "back":"stage3back.png",
+        "riddle":"blah blah blah !!!!!!",
+        "prompt":"Even after escaping the crumbling island, Luffy is in serious danger. Not from Marines… not from a Sea King… but from an infinite loop of hunger! He’s stuck in a cursed kitchen on a ghost ship where food appears… but only if he answers the ancient chef’s logic riddle. Feed his brain, or his stomach will stay empty forever."
+    }
+}
