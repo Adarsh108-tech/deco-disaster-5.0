@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Map } from '../components/Map';
+import { Map } from '@/components/ui/Map';
 
 export default function NextPage() {
   const [answer, setAnswer] = useState('');
-  // const router = useRouter(); 
+  const router = useRouter(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export default function NextPage() {
 
       setAnswer('');
       
-      // router.push("/");
+      router.push("/level2/Stage2");
 
     } catch (error) {
       console.error("Submission error:", error);
@@ -38,7 +38,7 @@ export default function NextPage() {
         alt="Background"
         className="absolute top-0 left-0 w-full h-full object-cover opacity-60 blur-[4px] z-0"
       />
-
+      
       <div className="relative z-10 flex flex-col lg:flex-row h-full w-full items-center justify-center px-4 py-6 space-y-10 lg:space-y-0 lg:space-x-6">
         {/* MAP IMAGE */}
         <div className="p-4 sm:p-6 md:p-8 lg:p-10">
@@ -56,27 +56,24 @@ export default function NextPage() {
           {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="w-full flex flex-col items-center space-y-6 px-4"
-          >
+            className="w-full flex flex-col items-center space-y-16 px-4">
             <div className="w-full max-w-[500px] bg-white rounded-lg shadow-lg p-2">
               <textarea
                 id="answer"
                 name="answer"
                 rows="1"
                 placeholder="ENTER YOUR ANSWER"
-                value={answer} 
+                value={answer}
                 onChange={handleChange}
-                className="w-full p-2 rounded-md text-black text-center focus:outline-none focus:ring-2 focus:ring-white/50 resize-none bg-white/90"
-              />
+                className="w-full p-2 rounded-md text-black uppercase text-center font-custom focus:outline-none focus:ring-2 focus:ring-white/50 resize-none bg-white/90"/>
             </div>
 
-            <button type="submit">
-              <img
-                src="/assets/button.png"
-                alt="Submit"
-                className="h-[50px] w-[200px] hover:scale-105 transition duration-300"
-              />
+           <button
+              type="submit"
+              className="h-[50px] w-[200px] bg-black text-purple-300 border-4 border-purple-600 font-bold text-2xl tracking-widest shadow-[4px_4px_0_rgba(168,85,247,1)] hover:scale-105 transition duration-300 rounded-md uppercase">
+              Submit
             </button>
+
           </form>
         </div>
       </div>
