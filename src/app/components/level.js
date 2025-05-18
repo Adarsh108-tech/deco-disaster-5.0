@@ -37,17 +37,18 @@ const Level = ({ char1Img, char2Img, say1, say2, back, riddle, nextRoute }) => {
 
     // Alternate turn logic
     if (turn === "A") {
+        if (charIndex < CharScript.length) {
+        setFullText(CharScript[charIndex]);
+        setCharIndex(charIndex + 1);
+        setTurn("B");
+      }
+      
+    } else {
       if (playerIndex < PlayerScript.length) {
         setFullText(PlayerScript[playerIndex]);
         setPlayerIndex(playerIndex + 1);
+        setTurn("A");
       }
-      setTurn("B");
-    } else {
-      if (charIndex < CharScript.length) {
-        setFullText(CharScript[charIndex]);
-        setCharIndex(charIndex + 1);
-      }
-      setTurn("A");
     }
   };
 
@@ -85,7 +86,7 @@ const Level = ({ char1Img, char2Img, say1, say2, back, riddle, nextRoute }) => {
       {/* Speech Bubble */}
       <div className="w-[80%] md:w-[45%] flex absolute justify-center items-center">
         <img
-          src={turn === "A" ? "/level/bubble.svg" : "/level/bubble2.svg"}
+          src={turn === "B" ? "/level/bubble.svg" : "/level/bubble2.svg"}
           alt="Speech Bubble"
           className="w-full"
         />
@@ -120,7 +121,7 @@ const Level = ({ char1Img, char2Img, say1, say2, back, riddle, nextRoute }) => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-[45%] max-h-[25%] text-xl mb-6">
+            <div className="w-[45%] max-h-[25%] text-xs md:text-[15px] mb-6">
               {riddle}
             </div>
 
@@ -128,7 +129,7 @@ const Level = ({ char1Img, char2Img, say1, say2, back, riddle, nextRoute }) => {
               type="text"
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
-              className="w-[40%] h-16 text-center font-semibold text-xl rounded-md bg-white border border-gray-400 shadow outline-none"
+              className="w-[40%] h-8 text-center font-semibold text-xl rounded-md bg-white border border-gray-400 shadow outline-none"
               placeholder="ENTER YOUR ANSWER"
             />
 
