@@ -27,7 +27,7 @@
         "PlayerImage":"/level/boy2.svg",
         "CharSay" : ["I’ve been running for hours… WHERE’S MY MEAT!?", "“If I eat meat, I won’t eat rice.”  “If I don’t eat rice, I’ll eat fish.” “If I eat fish, I’ll want more meat.” "],
         "PlayerSay":["You’ll never eat again unless you break the curse! Only one of your thoughts is true. Think wisely… or stay hungry forever!"],
-        "back":"stage3back.png",
+        "back":"/stage3back.png",
         "riddle":"blah blah blah !!!!!!",
         "prompt":"Even after escaping the crumbling island, Luffy is in serious danger. Not from Marines… not from a Sea King… but from an infinite loop of hunger! He’s stuck in a cursed kitchen on a ghost ship where food appears… but only if he answers the ancient chef’s logic riddle. Feed his brain, or his stomach will stay empty forever."
     }

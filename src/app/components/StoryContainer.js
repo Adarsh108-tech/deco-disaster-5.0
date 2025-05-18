@@ -8,7 +8,7 @@ const plus_jakarta_sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const StoryContainer = ({ storyContent }) => {
+const StoryContainer = ({ storyContent , nextRoute }) => {
   const [storyChunks, setStoryChunks] = useState([""]);
   const [showButton, setShowButton] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
@@ -17,7 +17,6 @@ const StoryContainer = ({ storyContent }) => {
   const counter = useRef(0);
 
   const router = useRouter();
-  const REDIRECT_URL = "/level1/Stage1";
 
   const onGameStarted = () => {
     setGameStarted(true);
@@ -38,7 +37,7 @@ const StoryContainer = ({ storyContent }) => {
   };
 
   const onEndedHandler = () => {
-    router.push(REDIRECT_URL);
+    router.push(nextRoute);
   };
 
   return (
