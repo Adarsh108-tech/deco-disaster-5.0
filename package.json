@@ -13,7 +13,12 @@
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+<<<<<<< HEAD
     "framer-motion": "^12.12.1",
+=======
+    "deco-disaster": "file:",
+    "framer-motion": "^12.11.3",
+>>>>>>> f824859cdd3c66218cb5ab5aa0dac850807000bc
     "lucide-react": "^0.510.0",
     "next": "^14.2.28",
     "react": "^18",
