@@ -1,13 +1,22 @@
 {
     "StoryContent":["Good you have cleared level 1 now it's time for level 2" ],
-    "stage1" : {
-        "char1" : {
-
-        },
-        "char2":{
-
-        }
+    
+    "stage1" : [
+    {
+      "speaker": "left",
+      "text": "Hey there! Welcome to our world."
     },
+    {
+      "speaker": "right",
+      "text": "Thanks! It's great to be here. What should I expect next?"
+    },
+    {
+      "speaker": "left",
+      "text": "There’s a lot to discover. Let’s start with something simple."
+    }
+  ],
+
+
     "stage2" : {
         "char1" : {
 
